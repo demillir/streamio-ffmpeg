@@ -12,7 +12,7 @@ module FFMPEG
         if path =~ URI::regexp(['http', 'https'])
           url = URI.parse(path)
           req = Net::HTTP.new(url.host, url.port)
-          res = req.request_head(url.path)
+          res = req.request_head(url)
           if res.code != "200"
             raise Exception.new("the url is not accessible")
           end
